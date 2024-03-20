@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" ></script>
+    <script>
+        socketio=io();
+        socketio.connect('http://127.0.0.1:5000');
+        socketio.on('connect',function(){
+            socketio.send('a');
+        })
+        socketio.on('message',function(msg){
+            console.log(msg);
+            socketio.send('a')
+        })
+
+    </script>
+
+
+    <title>WebSocket</title>
+</head>
+<body>
+<h1>This is webSocket client</h1>
+</body>
+</html>
